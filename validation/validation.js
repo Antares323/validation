@@ -8,7 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let isValidation = true
 
     const submit = () => {
-        alert('Login is successful')
+        if (window.location.pathname.indexOf('/forgot.html/')) {
+            alert('Reset is successful')
+        } else {
+            alert('Login is successful')
+        }
     }
 
     const validateElement = (element) => {
