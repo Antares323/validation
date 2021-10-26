@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const submit = () => {
         if (window.location.pathname.indexOf('/index.html')) {
-            alert('Reset is successful')
-        } else {
             alert('Login is successful')
+        } else if (window.location.pathname.indexOf('/forgot.html')) {
+            alert('Reset is successful')
         }
     }
 
