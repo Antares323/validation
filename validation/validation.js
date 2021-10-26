@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const regUsername = /^(?=[a-z0-9.]{3,16}$)[a-z0-9]+\.?[a-z0-9]+$|^.*@\w+\.[\w.]+$/
     const regPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
     const form = document.querySelector('.form')
-    let isValidation = true
+    let isValidation = false
 
     const submit = () => {
-        if (window.location.pathname.indexOf('/forgot.html/')) {
+        if (window.location.pathname.indexOf('/index.html')) {
             alert('Reset is successful')
         } else {
             alert('Login is successful')
@@ -41,12 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!regPassword.test(element.value) && element.value !== '') {
                     element.nextElementSibling.textContent = 'Plese enter password correct!'
                     isValidation = false
+                } else if (element.value.length <= 6) {
+                    element.nextElementSibling.textContent = 'More than 6 simvols!'
+                    isValidation = false
                 } else {
                     element.nextElementSibling.textContent = ''
                     isValidation = true
                 }
                 break
             default:
+
                 break
         }
     }
@@ -67,9 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (element.value === '') {
                     element.nextElementSibling.textContent = 'Please type empty fields!'
                     isValidation = false
-                } else {
-                    element.nextElementSibling.textContent = ''
-                    isValidation = true
                 }
             }
         }
